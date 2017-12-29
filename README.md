@@ -302,3 +302,23 @@ Alcuni tips utili per mantenere alte le prestazioni delle nostre app:
 
 1. `List`. In generale si preferisce usare `ArrayList` soprattutto per strutture dati di poca entità e che non richiedono continue iterazioni, ma ricerche dirette (tramite `.get(index`). Considerare `LinkedList` solo in altri casi. [Documentazione](http://stackoverflow.com/questions/322715/when-to-use-linkedlist-over-arraylist)
 
+## Struttura del progetto con MVVM & Dependency Injection
+Definiamo in questo capitolo le best practices di Tiknil per l'impostazione di un progetto Android in Java chiamato **AwesomeApp**.
+
+La cartella contenente il codice sorgente dell'app avrà la seguente struttura:
+
+```
+|--java
+  |--com.tiknil.awesomeapp
+    |-- di                # Classi per l'implementazione della dependency injection con Dragger2
+    |-- model             # Tutti gli oggetti model
+    |-- services          # Oggetti che forniscono servizi come networking, persistenza dei dati, ecc...
+    |-- utils             # Classi di generico aiuto per tutto l'app
+    |-- view              # Le classi che implementano la ui
+        |-- activity      # Tutte le activity eventualmente inseriti in sottocartelle di sezione
+        |-- fragment      # Tutte i fragment eventualmente inseriti in sottocartelle di sezione
+    |-- viewmodel         # Tutti i viewmodel eventualmente inseriti in sottocartelle di sezione
+|-- assets
+    |-- fonts             # Contiene i file dei fonts
+|-- res                   # Cartella di resources: color, drawable, layout,...
+```
